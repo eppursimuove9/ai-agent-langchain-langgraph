@@ -44,3 +44,23 @@ If you are running this locally (outside of Google Colab), ensure you have Pytho
 
 ```bash
 pip install google-genai langchain-community pypdf langchain-text-splitters langchain-google-genai faiss-cpu langgraph google-search-results markdown fpdf2
+```
+
+## 🛠️ Technologies Used
+
+* **[LangChain](https://www.langchain.com/):** For document loading (PyPDF), text splitting, and vector store integration.
+* **[LangGraph](https://langchain-ai.github.io/langgraph/):** For creating the conditional routing logic and managing the agent's state.
+* **[Google Gemini](https://deepmind.google/technologies/gemini/):** `gemini-2.5-flash` for reasoning/generation and `gemini-embedding-001` for vectorization.
+* **[FAISS](https://github.com/facebookresearch/faiss):** For fast, local vector storage and similarity search.
+* **[SerpAPI](https://serpapi.com/):** For executing search engine queries.
+
+## 💡 Example Usage
+
+Once the graph is compiled, you can run the agent by passing a query:
+
+```python
+ejecutar_agente("¿Dónde se mantuvo concentrado el mix de productos?")
+# Output: Routes to RAG and answers based on the local PDFs.
+
+ejecutar_agente("¿Cuántos mundiales de fútbol tiene Brasil?")
+# Output: Routes to Web, searches SerpAPI, and answers based on the internet.
